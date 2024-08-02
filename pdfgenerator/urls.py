@@ -4,5 +4,5 @@ from pdf import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name="home"),
-    path('done', views.submit, name="submit")
+    path('add/', views.adding, name="add"),
 ]

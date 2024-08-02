@@ -1,16 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import ProfileForm
 from .models import Profile
+from django.views.generic import CreateView
 # Create your views here.
 def home(request):
     return render(request, 'pdf/base.html')
 
 
 #still doesn't work fix it tomorrow 
-def submit(request):
+def adding(request):
     form = ProfileForm(request.POST or None)
-    if request.method == "POST":
-        name = request.POST.get("name","")
-        profile = Profile(name=name)
+    if form.is_valid():
         form.save()
-    return render(request, "pdf/done.html", {"form":form})
+        return redirect('done')
+    return render(request, "pdf/adding.html", {"form":form})
+    
