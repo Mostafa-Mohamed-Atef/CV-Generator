@@ -1,0 +1,128 @@
+{% extends "pdf/base.html" %}
+{% block body %}
+{% comment %} <body>
+    <h2>{{user_profile.name}}</h2>
+    <h2>{{user_profile.email}}</h2>
+    <h2>{{user_profile.phone}}</h2>
+    <h5>{{user_profile.linkedin}}</h5>
+    <hr />
+    <br />
+    <p>{{user_profile.summary}}</p>
+    <hr />
+    <br />
+    <p>Experiance</p>
+    <hr />
+    <p>{{user_profile.work}}</p>
+    <hr />
+    <br />
+    <p>Education</p>
+    <hr />
+    <p>{{user_profile.university}}</p>
+    <hr />
+    <br />
+    <p>Skills</p>
+    <hr />
+    <p>{{user_profile.skill}}</p>
+    <hr />
+</body> {% endcomment %}
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #333;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .contact-info {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        .section h2 {
+            font-size: 1.5em;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .section ul li {
+            margin: 10px 0;
+        }
+        .section ul li h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .section ul li p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{user_profile.name}}</h1>
+            <div class="contact-info">
+                <p>Email: {{user_profile.email}} | Phone: {{user_profile.phone}}</p>
+                <p>Linkedin: {{user_profile.linkedin}}</p>
+            </div>
+        </header>
+
+        <div class="section">
+            <h2>Summary</h2>
+            <p>{{user_profile.summary}}</p>
+        </div>
+
+        <div class="section">
+            <h2>Work Experience</h2>
+            <ul>
+                <li>
+                    <h3>{{user_profile.work}}</h3>
+                    <p>June 2015 - Present</p>
+                    <p>Lead a team of developers in creating web applications for various clients, ensuring timely delivery and optimal performance.</p>
+                </li>
+                <li>
+                    <h3>Software Engineer at Web Solutions</h3>
+                    <p>May 2010 - May 2015</p>
+                    <p>Developed and maintained multiple web applications, collaborating with designers and product managers to deliver high-quality products.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <ul>
+                <li>
+                    <h3>Master of Science in Computer Science</h3>
+                    <p>{{user_profile.university}}</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Skills</h2>
+            <ul>
+                <li>{{user_profile.skill}}</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock body %}
